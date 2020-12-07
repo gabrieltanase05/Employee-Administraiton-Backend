@@ -1,1 +1,3 @@
-# Employee-Administraiton-Backend
+### Employee-Administration
+
+Using: Node, Express, Mongoose
