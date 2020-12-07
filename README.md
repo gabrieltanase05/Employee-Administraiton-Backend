@@ -1,3 +1,8 @@
-### Employee-Administration
+### Employees-Administration Panel BACKEND
 
-Using: Node, Express, Mongoose
+API Server for Employees Administration panel using Node.js who serve the data from MongoDB.
+
+Using: **Node.js**, **Express**, **Mongoose**
+
+**Run backend server:**
+ `npm start`
