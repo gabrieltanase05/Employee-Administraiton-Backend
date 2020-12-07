@@ -31,6 +31,12 @@ mongoose.connect(
 //Check the connection to db.mongo
 mongoose.connection.on('error', console.error.bind(console, 'Error connection to MongoDB'))
 
+//Default page
+app.get('/',(req, res)=>{ 
+    res.send("Welcome to Employee Administration backend")
+      
+});
+
 //Routes(METHODS: app.GET, POST, PARCH, DELETE)
 //GET Method
 router.get('/GET',(req, res)=>{
