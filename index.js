@@ -14,7 +14,7 @@ app.use(logger('dev'));
 app.use('/api', router);
 
 //Listening Server
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
 
 //Connect to db.mongo
 mongoose.connect(
