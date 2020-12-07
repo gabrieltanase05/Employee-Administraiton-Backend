@@ -13,7 +13,7 @@ app.use(cors());
 app.use(logger('dev'));
 app.use('/api', router);
 
-//Listening Server
+//Listening Server on ENV PORT ( as Heroku wants) or 8080
 app.listen(process.env.PORT || 8080);
 
 //Connect to db.mongo
@@ -31,13 +31,13 @@ mongoose.connect(
 //Check the connection to db.mongo
 mongoose.connection.on('error', console.error.bind(console, 'Error connection to MongoDB'))
 
-//Default page
+//Root page
 app.get('/',(req, res)=>{ 
     res.send("Welcome to Employee Administration backend")
       
 });
 
-//Routes(METHODS: app.GET, POST, PARCH, DELETE)
+//Routes(METHODS: GET, POST, UPDATE, DELETE)
 //GET Method
 router.get('/GET',(req, res)=>{
         Data.find((err, data)=>{
@@ -50,7 +50,7 @@ router.get('/GET',(req, res)=>{
 
 });
 
-//POST Method- Post the data from CRUD to Mongo.db
+//POST Method- ADD the data from Frontend to Mongo.db
 router.post('/POST', (req, res) => {
     const data = new Data();
     const {name, salary, age} = req.body
@@ -68,7 +68,7 @@ router.post('/POST', (req, res) => {
     });
 })
 
-//DELETE Method- DELETE the data from  Mongo.db
+//DELETE Method- DELETE data from  Mongo.db
 router.delete('/DELETE', (req, res)=>{
     const {id} = req.body;
     Data.findByIdAndRemove(id, err =>{
