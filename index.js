@@ -17,8 +17,6 @@ app.use(cors());
 app.use(logger('dev'));
 app.use('/api', router);
 
-//Listening Server on ENV PORT ( as Heroku wants) or 8080
-app.listen(process.env.PORT || 8080);
 
 //Connect to db.mongo
 mongoose.connect(
@@ -92,9 +90,11 @@ router.post('/UPDATE', (req, res)=>{
         if (err){
             res.status(500).json({success: false, error: err});
         } else {
-            res.status(500).json({success: true});
+            res.status(200).json({success: true});
         }
     })
 })
 
 
+//Listening Server on ENV PORT or 8080
+app.listen(process.env.PORT || 8080, () => console.log("Server listening on port 8080"));
